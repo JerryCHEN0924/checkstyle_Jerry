@@ -1,0 +1,9 @@
+/\*\*
+ \* @Description\s*:\s*.*\s*
+ \* @ClassName\s*:\s*.*$
+ \* @Copyright\s*:\s*Copyright \(c\) .*\s*HiTRUST All Rights Reserved\.
+ \* @author\s*:\s*.*$
+ \* @ModifyHistory\s*:
+ \* .*$
+ \* .*$
+ \*/

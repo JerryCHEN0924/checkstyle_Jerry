@@ -1,0 +1,78 @@
+<!DOCTYPE module PUBLIC
+  "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+  "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<!-- 這是 Checker 模塊，所有檢查模塊的根節點 -->
+<module name="Checker">
+
+	<!-- 輸出層級為warning -->
+	<!-- <property name="severity" value="warning" /> -->
+
+	<!-- 使用正則表達式,檢查是否包含了標頭內容 -->
+	<module name="RegexpHeader">
+		<property name="headerFile"
+			value="src/main/resources/header.txt" />
+		<property name="fileExtensions" value="java" />
+	</module>
+
+	<!-- 檢查是否有超過指定長度的行 -->
+	<module name="LineLength">
+		<property name="max" value="100" />
+	</module>
+
+	<!-- TreeWalker 處理 Java 源代碼樹的主要模塊 -->
+	<module name="TreeWalker">
+
+		<!-- 驗證標識符名稱中的縮寫（連續大寫字母）長度，它還允許強制實施駝峰式命名。 -->
+		<module name="AbbreviationAsWordInName">
+			<!-- 連續大寫字母長度最多幾個字。 -->
+			<property name="allowedAbbreviationLength" value="5" />
+			<property name="ignoreStatic" value="true"/>
+      		<property name="ignoreFinal" value="true"/>
+		</module>
+
+		<!-- 檢查package名稱必須用小寫。 -->
+		<module name="PackageName">
+			<property name="format" value="^[a-z]+(\.[a-z][a-z0-9]*)*$" />
+		</module>
+
+		<!-- 檢查變數名稱前後方,不可加入下底線。 -->
+		<module name="LocalVariableName">
+			<property name="format"
+				value="^[^_$][a-zA-Z0-9_$]{0,13}[^_$]$" />
+		</module>
+
+		<!-- 檢查方法名稱前後方,不可加入下底線。 -->
+		<module name="MethodName">
+			<property name="format"
+				value="^[^_$][a-zA-Z0-9_$]{0,13}[^_$]$" />
+		</module>
+
+		<!-- 檢查常數是否符合規範,必須是靜態、或是用final宣告。 -->
+		<module name="ConstantName" />
+
+		<!-- 檢查是否導入了沒有使用的類別 -->
+		<module name="UnusedImports" />
+
+		<!-- 檢查字串比對時是否有使用.equals。 -->
+		<module name="StringLiteralEquality" />
+
+		<!-- 檢查方法是否包含了參數、回傳值 -->
+		<module name="JavadocMethod">
+			<!-- 要檢查的封裝範圍 -->
+			<property name="accessModifiers"
+				value="public, protected, package, private" />
+			<!-- 是否忽略對於參數的檢查 -->
+			<property name="allowMissingParamTags" value="false" />
+			<!-- 是否忽略對於回傳值的檢查 -->
+			<property name="allowMissingReturnTag" value="false" />
+			<!-- 是否忽略對於throws的檢查 -->
+			<property name="validateThrows" value="false" />
+		</module>
+
+
+	</module>
+
+
+
+</module>
